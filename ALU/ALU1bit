@@ -1,0 +1,174 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00000000001acfb0 .scope module, "tb_ALU1bit" "tb_ALU1bit" 2 3;
+ .timescale -9 -12;
+v000000000256d430_0 .net "R", 0 0, L_000000000256d930;  1 drivers
+v000000000256d110_0 .var "S", 1 0;
+v000000000256cf30_0 .var "x", 0 0;
+v000000000256ce90_0 .var "y", 0 0;
+S_00000000001ad130 .scope module, "UUT" "ALU1bit" 2 8, 3 1 0, S_00000000001acfb0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "x"
+    .port_info 1 /INPUT 1 "y"
+    .port_info 2 /INPUT 2 "S"
+    .port_info 3 /OUTPUT 1 "R"
+L_00000000025b5a00 .functor AND 1, v000000000256cf30_0, v000000000256ce90_0, C4<1>, C4<1>;
+L_00000000025b5a70 .functor OR 1, v000000000256cf30_0, v000000000256ce90_0, C4<0>, C4<0>;
+v00000000001ad2b0_0 .net "R", 0 0, L_000000000256d930;  alias, 1 drivers
+v000000000250fd70_0 .net "S", 1 0, v000000000256d110_0;  1 drivers
+L_000000000256d9f8 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v000000000250fe10_0 .net/2u *"_s0", 1 0, L_000000000256d9f8;  1 drivers
+v000000000256c6c0_0 .net *"_s10", 0 0, L_000000000256d7f0;  1 drivers
+L_000000000256da88 .functor BUFT 1, C4<10>, C4<0>, C4<0>, C4<0>;
+v000000000256c760_0 .net/2u *"_s12", 1 0, L_000000000256da88;  1 drivers
+v000000000256c800_0 .net *"_s14", 0 0, L_000000000256d750;  1 drivers
+v000000000256c8a0_0 .net *"_s16", 0 0, L_00000000025b5a00;  1 drivers
+v000000000256c940_0 .net *"_s18", 0 0, L_00000000025b5a70;  1 drivers
+v000000000256d570_0 .net *"_s2", 0 0, L_000000000256ccb0;  1 drivers
+v000000000256cfd0_0 .net *"_s20", 0 0, L_000000000256d250;  1 drivers
+v000000000256d610_0 .net *"_s22", 0 0, L_000000000256d390;  1 drivers
+v000000000256d6b0_0 .net *"_s4", 0 0, L_000000000256cb70;  1 drivers
+L_000000000256da40 .functor BUFT 1, C4<01>, C4<0>, C4<0>, C4<0>;
+v000000000256cad0_0 .net/2u *"_s6", 1 0, L_000000000256da40;  1 drivers
+v000000000256d2f0_0 .net *"_s8", 0 0, L_000000000256d890;  1 drivers
+v000000000256ca30_0 .net "x", 0 0, v000000000256cf30_0;  1 drivers
+v000000000256d070_0 .net "y", 0 0, v000000000256ce90_0;  1 drivers
+L_000000000256ccb0 .cmp/eq 2, v000000000256d110_0, L_000000000256d9f8;
+L_000000000256cb70 .arith/sum 1, v000000000256cf30_0, v000000000256ce90_0;
+L_000000000256d890 .cmp/eq 2, v000000000256d110_0, L_000000000256da40;
+L_000000000256d7f0 .arith/sub 1, v000000000256cf30_0, v000000000256ce90_0;
+L_000000000256d750 .cmp/eq 2, v000000000256d110_0, L_000000000256da88;
+L_000000000256d250 .functor MUXZ 1, L_00000000025b5a70, L_00000000025b5a00, L_000000000256d750, C4<>;
+L_000000000256d390 .functor MUXZ 1, L_000000000256d250, L_000000000256d7f0, L_000000000256d890, C4<>;
+L_000000000256d930 .functor MUXZ 1, L_000000000256d390, L_000000000256cb70, L_000000000256ccb0, C4<>;
+    .scope S_00000000001acfb0;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "ALU1bit.vpd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256cf30_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000000000256ce90_0, 0, 1;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v000000000256d110_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 47 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_ALU1bit.v";
+    "ALU1bit.v";
